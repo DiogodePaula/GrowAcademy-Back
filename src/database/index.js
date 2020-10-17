@@ -3,8 +3,11 @@ import 'dotenv/config';
 import databaseConfig from '../config/database';
 
 import User from '../app/models/User';
+import Growdever from '../app/models/Growdever';
+import Classe from '../app/models/Classe';
+import ClassUser from '../app/models/ClassUser';
 
-const models = [User];
+const models = [User, Growdever, Classe, ClassUser];
 
 class DataBase {
   constructor() {
