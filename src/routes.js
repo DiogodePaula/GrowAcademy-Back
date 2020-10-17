@@ -9,7 +9,7 @@ import ClassUserController from './app/controllers/ClassUserController';
 
 import AuthController from './app/controllers/AuthController';
 
-// import authMiddleware from './app/middlewares/auth';
+import authMiddleware from './app/middlewares/auth';
 
 const routes = Router();
 routes.use(cors());
@@ -18,7 +18,7 @@ routes.get('/', (req, res) => res.json({ result: 'BOMBANDO' }));
 
 routes.post('/login', AuthController.store);
 
-// routes.use(authMiddleware);
+routes.use(authMiddleware);
 
 // Users (auth)
 routes.post('/users', UserController.store);
