@@ -1,24 +1,24 @@
 import Growdever from '../models/Growdever';
+import User from '../models/User';
+import ClassUser from '../models/ClassUser';
 
 class GrowdeverController {
   async index(req, res) {
     try {
       const growdever = await Growdever.findAll({
-        // attributes: ['uid', 'name', 'age', 'email', 'phone', 'type'],
-        // include: [
-        //   {
-        //     model: Test,
-        //     as: 'test',
-        //     attributes: ['uid', 'matter', 'description'],
-        //     include: [
-        //       {
-        //         model: Note,
-        //         as: 'note',
-        //         attributes: ['uid', 'note', 'description'],
-        //       },
-        //     ],
-        //   },
-        // ],
+        attributes: ['uid', 'email', 'phone', 'program'],
+        include: [
+          {
+            model: User,
+            as: 'user',
+            attributes: ['uid', 'matter', 'description'],
+          },
+          {
+            model: ClassUser,
+            as: 'growdev',
+            attributes: ['uid', 'status'],
+          },
+        ],
       });
 
       return res.json({ growdever });
@@ -31,21 +31,19 @@ class GrowdeverController {
     try {
       const { uid } = req.params;
       const growdever = await Growdever.findByPk(uid, {
-        // attributes: ['uid', 'name', 'age', 'email', 'phone', 'type'],
-        // include: [
-        //   {
-        //     model: Test,
-        //     as: 'test',
-        //     attributes: ['uid', 'matter', 'description'],
-        //     include: [
-        //       {
-        //         model: Note,
-        //         as: 'note',
-        //         attributes: ['uid', 'note', 'description'],
-        //       },
-        //     ],
-        //   },
-        // ],
+        attributes: ['uid', 'email', 'phone', 'program'],
+        include: [
+          {
+            model: User,
+            as: 'user',
+            attributes: ['uid', 'matter', 'description'],
+          },
+          {
+            model: ClassUser,
+            as: 'growdev',
+            attributes: ['uid', 'status'],
+          },
+        ],
       });
 
       return res.json({ growdever });

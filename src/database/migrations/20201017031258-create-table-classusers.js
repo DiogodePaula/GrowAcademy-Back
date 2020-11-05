@@ -6,6 +6,10 @@ module.exports = {
         allowNull: false,
         type: Sequelize.UUID,
       },
+      status: {
+        allowNull: true,
+        type: Sequelize.STRING,
+      },
       growdever_uid: {
         type: Sequelize.UUID,
         allowNull: false,
@@ -16,7 +20,7 @@ module.exports = {
         onDelete: 'CASCADE',
         onUpdate: 'CASCADE',
       },
-      user_uid: {
+      class_uid: {
         type: Sequelize.UUID,
         allowNull: false,
         reference: {

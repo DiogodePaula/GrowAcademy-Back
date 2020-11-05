@@ -30,6 +30,13 @@ class Classe extends Model {
 
     return this;
   }
+
+  static associate(models) {
+    this.hasMany(models.ClassUser, {
+      as: 'classUsers',
+      foreignKey: 'class_uid',
+    });
+  }
 }
 
 export default Classe;

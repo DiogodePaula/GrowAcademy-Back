@@ -11,11 +11,11 @@ const models = [User, Growdever, Classe, ClassUser];
 
 class DataBase {
   constructor() {
+    console.log('E AI!');
     this.init();
   }
 
   init() {
-    console.log('BOMBANDO');
     this.connection = new Sequelize(process.env.DATABASE_URL, databaseConfig);
 
     models

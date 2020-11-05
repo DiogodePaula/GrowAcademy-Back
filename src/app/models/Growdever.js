@@ -33,7 +33,7 @@ class Growdever extends Model {
           type: Sequelize.UUID,
           allowNull: false,
           reference: {
-            model: 'user',
+            model: 'users',
             key: 'uid',
           },
           onDelete: 'CASCADE',

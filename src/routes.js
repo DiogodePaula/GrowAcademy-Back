@@ -17,17 +17,17 @@ routes.use(cors());
 routes.get('/', (req, res) => res.json({ result: 'BOMBANDO' }));
 
 routes.post('/login', AuthController.store);
-
-routes.use(authMiddleware);
-
-// Users (auth)
 routes.post('/users', UserController.store);
 routes.get('/users', UserController.index);
+routes.post('/growdevers', GrowdeverController.store);
+
+// routes.use(authMiddleware);
+
+// Users (auth)
 routes.get('/users/:uid', UserController.show);
 routes.put('/users/:uid', UserController.update);
 routes.delete('/users/:uid', UserController.delete);
 
-routes.post('/growdevers', GrowdeverController.store);
 routes.get('/growdevers', GrowdeverController.index);
 routes.get('/growdevers/:uid', GrowdeverController.show);
 routes.put('/growdevers/:uid', GrowdeverController.update);

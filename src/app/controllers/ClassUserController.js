@@ -3,23 +3,7 @@ import ClassUser from '../models/ClassUser';
 class ClassUserController {
   async index(req, res) {
     try {
-      const classe = await ClassUser.findAll({
-        // attributes: ['uid', 'name', 'age', 'email', 'phone', 'type'],
-        // include: [
-        //   {
-        //     model: Test,
-        //     as: 'test',
-        //     attributes: ['uid', 'matter', 'description'],
-        //     include: [
-        //       {
-        //         model: Note,
-        //         as: 'note',
-        //         attributes: ['uid', 'note', 'description'],
-        //       },
-        //     ],
-        //   },
-        // ],
-      });
+      const classe = await ClassUser.findAll({});
 
       return res.json({ classe });
     } catch (error) {
@@ -30,23 +14,7 @@ class ClassUserController {
   async show(req, res) {
     try {
       const { uid } = req.params;
-      const classe = await ClassUser.findByPk(uid, {
-        // attributes: ['uid', 'name', 'age', 'email', 'phone', 'type'],
-        // include: [
-        //   {
-        //     model: Test,
-        //     as: 'test',
-        //     attributes: ['uid', 'matter', 'description'],
-        //     include: [
-        //       {
-        //         model: Note,
-        //         as: 'note',
-        //         attributes: ['uid', 'note', 'description'],
-        //       },
-        //     ],
-        //   },
-        // ],
-      });
+      const classe = await ClassUser.findByPk(uid, {});
 
       return res.json({ classe });
     } catch (error) {

@@ -1,24 +1,18 @@
 import User from '../models/User';
+import Growdever from '../models/Growdever';
 
 class UserController {
   async index(req, res) {
     try {
       const user = await User.findAll({
-        attributes: ['uid', 'name', 'age', 'email', 'phone', 'type'],
-        // include: [
-        //   {
-        //     model: Test,
-        //     as: 'test',
-        //     attributes: ['uid', 'matter', 'description'],
-        //     include: [
-        //       {
-        //         model: Note,
-        //         as: 'note',
-        //         attributes: ['uid', 'note', 'description'],
-        //       },
-        //     ],
-        //   },
-        // ],
+        attributes: ['uid', 'login', 'name', 'type'],
+        include: [
+          {
+            model: Growdever,
+            as: 'test',
+            attributes: ['uid', 'email', 'phone', 'program'],
+          },
+        ],
       });
 
       return res.json({ user });
@@ -33,21 +27,14 @@ class UserController {
     try {
       const { uid } = req.params;
       const user = await User.findByPk(uid, {
-        attributes: ['uid', 'name', 'age', 'email', 'phone', 'type'],
-        // include: [
-        //   {
-        //     model: Test,
-        //     as: 'test',
-        //     attributes: ['uid', 'matter', 'description'],
-        //     include: [
-        //       {
-        //         model: Note,
-        //         as: 'note',
-        //         attributes: ['uid', 'note', 'description'],
-        //       },
-        //     ],
-        //   },
-        // ],
+        attributes: ['uid', 'login', 'name', 'type'],
+        include: [
+          {
+            model: Growdever,
+            as: 'test',
+            attributes: ['uid', 'email', 'phone', 'program'],
+          },
+        ],
       });
 
       return res.json({ user });
@@ -72,14 +59,14 @@ class UserController {
 
   async update(req, res) {
     try {
-      const { email, oldPassword } = req.body;
+      const { login, oldPassword } = req.body;
 
       const { uid } = req.params;
 
       // aqui ja estou achando o usuário
       const user = await User.findByPk(uid);
 
-      if (email !== user.email) {
+      if (login !== user.login) {
         return res.json({ error: 'Usuário não encontrado' });
       }
 
@@ -89,7 +76,7 @@ class UserController {
       // e aqui n é necessário acha-lo novamente
       const { name } = await user.update(req.body);
 
-      return res.json({ user: { uid, name, email } });
+      return res.json({ user: { uid, name, login } });
     } catch (error) {
       return res.json({ error });
     }

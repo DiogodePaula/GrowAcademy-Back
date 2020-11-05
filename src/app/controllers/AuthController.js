@@ -5,10 +5,9 @@ import authConfig from '../../config/auth';
 class AuthController {
   async store(req, res) {
     try {
-      const { email, password } = req.body;
+      const { login, password } = req.body;
 
-      const user = await User.findOne({ where: { email } });
-      const { uid, name, type } = user;
+      const user = await User.findOne({ where: { login } });
 
       if (!user) {
         return res.status(401).json({ error: 'Usuário não encontrado' });
@@ -18,14 +17,16 @@ class AuthController {
         return res.status(401).json({ error: 'Senha Invalida' });
       }
 
+      const { uid, name, type } = user;
+
       return res.json({
         user: {
           uid,
           name,
-          email,
+          login,
           type,
         },
-        // aqui n tínhamos o type
+
         token: jwt.sign({ uid, type }, authConfig.secret, {
           expiresIn: authConfig.expiresIn,
         }),

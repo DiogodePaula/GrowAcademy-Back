@@ -10,6 +10,10 @@ class ClassUser extends Model {
           type: Sequelize.UUID,
           defaultValue: Sequelize.UUIDV4,
         },
+        status: {
+          allowNull: true,
+          type: Sequelize.STRING,
+        },
         growdever_uid: {
           type: Sequelize.UUID,
           allowNull: false,
@@ -20,7 +24,7 @@ class ClassUser extends Model {
           onDelete: 'CASCADE',
           onUpdate: 'CASCADE',
         },
-        user_uid: {
+        class_uid: {
           type: Sequelize.UUID,
           allowNull: false,
           reference: {
@@ -37,6 +41,17 @@ class ClassUser extends Model {
     );
 
     return this;
+  }
+
+  static associate(models) {
+    this.belongsTo(models.Growdever, {
+      as: 'growdever',
+      foreignKey: 'growdever_uid',
+    });
+    this.belongsTo(models.ClassUser, {
+      as: 'class',
+      foreignKey: 'class_uid',
+    });
   }
 }
 

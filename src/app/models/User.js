@@ -48,12 +48,12 @@ class User extends Model {
     return bcrypt.compare(password, this.password_hash);
   }
 
-  // static associate(models) {
-  //   this.hasMany(models.Test, {
-  //     as: 'test',
-  //     foreignKey: 'user_uid',
-  //   });
-  // }
+  static associate(models) {
+    this.hasOne(models.Growdever, {
+      as: 'growdever',
+      foreignKey: 'user_uid',
+    });
+  }
 }
 
 export default User;
