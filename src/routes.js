@@ -14,7 +14,7 @@ import authMiddleware from './app/middlewares/auth';
 const routes = Router();
 routes.use(cors());
 
-routes.get('/', (req, res) => res.json({ result: 'BOMBANDO' }));
+routes.get('/', (req, res) => res.json({ result: 'E ai' }));
 
 routes.post('/login', AuthController.store);
 routes.post('/users', UserController.store);

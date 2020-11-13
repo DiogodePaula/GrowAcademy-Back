@@ -9,7 +9,7 @@ class UserController {
         include: [
           {
             model: Growdever,
-            as: 'test',
+            as: 'growdever',
             attributes: ['uid', 'email', 'phone', 'program'],
           },
         ],
