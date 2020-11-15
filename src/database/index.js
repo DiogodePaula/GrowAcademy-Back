@@ -11,7 +11,7 @@ const models = [User, Growdever, Classe, ClassUser];
 
 class DataBase {
   constructor() {
-    console.log('ta dificil');
+    console.log('tomar água');
     this.init();
   }
 

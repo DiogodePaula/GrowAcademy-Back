@@ -18,16 +18,16 @@ routes.get('/', (req, res) => res.json({ result: 'E ai' }));
 
 routes.post('/login', AuthController.store);
 routes.post('/users', UserController.store);
-routes.get('/users', UserController.index);
-routes.post('/growdevers', GrowdeverController.store);
 
 // routes.use(authMiddleware);
 
 // Users (auth)
+routes.get('/users', UserController.index);
 routes.get('/users/:uid', UserController.show);
 routes.put('/users/:uid', UserController.update);
 routes.delete('/users/:uid', UserController.delete);
 
+routes.post('/growdevers', GrowdeverController.store);
 routes.get('/growdevers', GrowdeverController.index);
 routes.get('/growdevers/:uid', GrowdeverController.show);
 routes.put('/growdevers/:uid', GrowdeverController.update);
@@ -42,7 +42,7 @@ routes.delete('/classes/:uid', ClasseController.delete);
 routes.post('/class-user', ClassUserController.store);
 routes.get('/class-user', ClassUserController.index);
 routes.get('/class-user/:uid', ClassUserController.show);
-// routes.put('/class-user/:uid', ClasseController.update);
+routes.put('/class-user/:uid', ClasseController.update);
 routes.delete('/class-user/:uid', ClassUserController.delete);
 
 export default routes;

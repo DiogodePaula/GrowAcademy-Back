@@ -6,19 +6,19 @@ class GrowdeverController {
   async index(req, res) {
     try {
       const growdever = await Growdever.findAll({
-        attributes: ['uid', 'email', 'phone', 'program'],
-        include: [
-          {
-            model: User,
-            as: 'user',
-            attributes: ['uid', 'matter', 'description'],
-          },
-          {
-            model: ClassUser,
-            as: 'growdev',
-            attributes: ['uid', 'status'],
-          },
-        ],
+        attributes: ['name', 'email', 'phone', 'program'],
+        // include: [
+        //   {
+        //     model: User,
+        //     as: 'user',
+        //     attributes: ['uid', 'matter', 'description'],
+        //   },
+        //   {
+        //     model: ClassUser,
+        //     as: 'growdev',
+        //     attributes: ['uid', 'status'],
+        //   },
+        // ],
       });
 
       return res.json({ growdever });
