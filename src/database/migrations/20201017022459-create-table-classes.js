@@ -6,6 +6,10 @@ module.exports = {
         allowNull: false,
         type: Sequelize.UUID,
       },
+      bootcamp: {
+        allowNull: false,
+        type: Sequelize.STRING,
+      },
       date: {
         allowNull: false,
         type: Sequelize.DATE,

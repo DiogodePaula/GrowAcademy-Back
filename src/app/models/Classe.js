@@ -10,6 +10,10 @@ class Classe extends Model {
           type: Sequelize.UUID,
           defaultValue: Sequelize.UUIDV4,
         },
+        bootcamp: {
+          allowNull: false,
+          type: Sequelize.STRING,
+        },
         date: {
           allowNull: false,
           type: Sequelize.DATE,

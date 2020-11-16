@@ -43,16 +43,16 @@ class ClassUser extends Model {
     return this;
   }
 
-  static associate(models) {
-    this.belongsTo(models.Growdever, {
-      as: 'growdever',
-      foreignKey: 'growdever_uid',
-    });
-    this.belongsTo(models.ClassUser, {
-      as: 'class',
-      foreignKey: 'class_uid',
-    });
-  }
+  // static associate(models) {
+  //   this.belongsTo(models.Growdever, {
+  //     as: 'growdever',
+  //     foreignKey: 'growdever_uid',
+  //   });
+  //   this.belongsTo(models.ClassUser, {
+  //     as: 'class',
+  //     foreignKey: 'class_uid',
+  //   });
+  // }
 }
 
 export default ClassUser;

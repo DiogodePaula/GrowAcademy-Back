@@ -5,14 +5,14 @@ class UserController {
   async index(req, res) {
     try {
       const user = await User.findAll({
-        attributes: ['uid', 'login', 'name', 'type'],
-        include: [
-          {
-            model: Growdever,
-            as: 'growdever',
-            attributes: ['uid', 'email', 'phone', 'program'],
-          },
-        ],
+        attributes: ['login', 'name'],
+        // include: [
+        //   {
+        //     model: Growdever,
+        //     as: 'growdever',
+        //     attributes: ['uid', 'email', 'phone', 'program'],
+        //   },
+        // ],
       });
 
       return res.json({ user });

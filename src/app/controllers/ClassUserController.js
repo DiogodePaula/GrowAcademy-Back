@@ -24,9 +24,9 @@ class ClassUserController {
 
   async store(req, res) {
     try {
-      const classe = await ClassUser.create(req.body);
+      const classeUser = await ClassUser.create(req.body);
 
-      return res.json({ classe });
+      return res.json({ classeUser });
     } catch (error) {
       const response = {
         message: 'dados incorretos',
@@ -36,17 +36,17 @@ class ClassUserController {
     }
   }
 
-  // async update(req, res) {
-  //   try {
-  //     const { uid } = req.params;
+  async update(req, res) {
+    try {
+      const { uid } = req.params;
 
-  //     const classe = await ClassUser.update({ where: { uid } });
+      const classe = await ClassUser.update({ where: { uid } });
 
-  //     return res.json({ classe });
-  //   } catch (error) {
-  //     return res.json({ error });
-  //   }
-  // }
+      return res.json({ classe });
+    } catch (error) {
+      return res.json({ error });
+    }
+  }
 
   async delete(req, res) {
     try {
