@@ -16,11 +16,11 @@ class Classe extends Model {
         },
         date: {
           allowNull: false,
-          type: Sequelize.DATE,
+          type: Sequelize.STRING,
         },
         hour: {
           allowNull: false,
-          type: Sequelize.TIME,
+          type: Sequelize.STRING,
         },
         status: {
           allowNull: false,
@@ -35,12 +35,12 @@ class Classe extends Model {
     return this;
   }
 
-  static associate(models) {
-    this.hasMany(models.ClassUser, {
-      as: 'classUsers',
-      foreignKey: 'class_uid',
-    });
-  }
+  // static associate(models) {
+  //   this.hasOne(models.ClassUser, {
+  //     as: 'class',
+  //     foreignKey: 'uid',
+  //   });
+  // }
 }
 
 export default Classe;

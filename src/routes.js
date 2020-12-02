@@ -39,10 +39,10 @@ routes.get('/classes/:uid', ClasseController.show);
 routes.put('/classes/:uid', ClasseController.update);
 routes.delete('/classes/:uid', ClasseController.delete);
 
-routes.post('/class-user', ClassUserController.store);
-routes.get('/class-user', ClassUserController.index);
-routes.get('/class-user/:uid', ClassUserController.show);
-routes.put('/class-user/:uid', ClasseController.update);
-routes.delete('/class-user/:uid', ClassUserController.delete);
+routes.post('/class-users', ClassUserController.store);
+routes.get('/class-users', ClassUserController.index);
+routes.get('/class-users/:uid', ClassUserController.show);
+routes.put('/class-users/:uid', ClasseController.update);
+routes.delete('/class-users/:uid', ClassUserController.delete);
 
 export default routes;

@@ -28,13 +28,13 @@ class UserController {
       const { uid } = req.params;
       const user = await User.findByPk(uid, {
         attributes: ['uid', 'login', 'name', 'type'],
-        include: [
-          {
-            model: Growdever,
-            as: 'test',
-            attributes: ['uid', 'email', 'phone', 'program'],
-          },
-        ],
+        // include: [
+        //   {
+        //     model: Growdever,
+        //     as: 'test',
+        //     attributes: ['uid', 'email', 'phone', 'program'],
+        //   },
+        // ],
       });
 
       return res.json({ user });

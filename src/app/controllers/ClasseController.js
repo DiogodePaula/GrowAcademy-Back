@@ -3,23 +3,7 @@ import Classe from '../models/Classe';
 class ClasseController {
   async index(req, res) {
     try {
-      const classe = await Classe.findAll({
-        // attributes: ['uid', 'name', 'age', 'email', 'phone', 'type'],
-        // include: [
-        //   {
-        //     model: Test,
-        //     as: 'test',
-        //     attributes: ['uid', 'matter', 'description'],
-        //     include: [
-        //       {
-        //         model: Note,
-        //         as: 'note',
-        //         attributes: ['uid', 'note', 'description'],
-        //       },
-        //     ],
-        //   },
-        // ],
-      });
+      const classe = await Classe.findAll({});
 
       return res.json({ classe });
     } catch (error) {
@@ -30,23 +14,7 @@ class ClasseController {
   async show(req, res) {
     try {
       const { uid } = req.params;
-      const classe = await Classe.findByPk(uid, {
-        // attributes: ['uid', 'name', 'age', 'email', 'phone', 'type'],
-        // include: [
-        //   {
-        //     model: Test,
-        //     as: 'test',
-        //     attributes: ['uid', 'matter', 'description'],
-        //     include: [
-        //       {
-        //         model: Note,
-        //         as: 'note',
-        //         attributes: ['uid', 'note', 'description'],
-        //       },
-        //     ],
-        //   },
-        // ],
-      });
+      const classe = await Classe.findByPk(uid, {});
 
       return res.json({ classe });
     } catch (error) {
